@@ -10,9 +10,17 @@
 #import "FPPopoverView.h"
 #import "ARCMacros.h"
 
-#define FP_POPOVER_ARROW_HEIGHT 20.0
-#define FP_POPOVER_ARROW_BASE 20.0
-#define FP_POPOVER_RADIUS 10.0
+#ifndef FP_POPOVER_ARROW_HEIGHT
+	#define FP_POPOVER_ARROW_HEIGHT 20.0
+#endif
+
+#ifndef FP_POPOVER_ARROW_BASE
+	#define FP_POPOVER_ARROW_BASE 20.0
+#endif
+
+#ifndef FP_POPOVER_RADIUS
+	#define FP_POPOVER_RADIUS 10.0
+#endif
 
 //iVars
 @interface FPPopoverView()
@@ -57,9 +65,10 @@
         self.backgroundColor = [UIColor clearColor];
         self.clipsToBounds = YES;
         
-        self.layer.shadowOpacity = 0.7;
+        self.layer.shadowOpacity = 0.3;
         self.layer.shadowRadius = 5;
-        self.layer.shadowOffset = CGSizeMake(-3, 3);
+
+        self.layer.shadowOffset = CGSizeMake(0, 2);
 
         //to get working the animations
         self.contentMode = UIViewContentModeRedraw;
@@ -454,7 +463,7 @@
     CGPathRelease(externalBorderPath);
 
     //3D border of the content view
-    if(self.draw3dBorder) {
+    if(self.draw3dBorder && false) {
         CGRect cvRect = _contentView.frame;
         //firstLine
         CGContextSetRGBStrokeColor(ctx, 0.7, 0.7, 0.7, 1.0);
