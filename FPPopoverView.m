@@ -335,6 +335,22 @@
             colors[3] = colors[7] = 1.0;
         }        
     }
+	else if(self.tint == FPPopoverBlueTint)
+    {
+        if(_arrowDirection == FPPopoverArrowDirectionUp)
+        {
+            colors[0] = 0.32; colors[1] = 0.35; colors[2] = 0.72;
+            colors[4] = 0.19; colors[5] = 0.20;  colors[6] = 0.56;
+            colors[3] = colors[7] = 1.0;
+			
+        }
+        else
+        {
+            colors[0] = 0.42; colors[1] = 0.45; colors[2] = 0.82;
+            colors[4] = 0.09; colors[5] = 0.0;  colors[6] = 0.36;
+            colors[3] = colors[7] = 1.0;
+        }
+    }
     else if(self.tint == FPPopoverWhiteTint)
     {
         colors[0] = colors[1] = colors[2] = 1.0;
@@ -404,6 +420,10 @@
     else if(self.tint == FPPopoverGreenTint)
     {
         CGContextSetRGBFillColor(ctx, 0.18, 0.30, 0.03, 1.0);        
+    }
+	else if(self.tint == FPPopoverBlueTint)
+	{
+		CGContextSetRGBFillColor(ctx, 0.14, 0.250, 0.59, 1.0);
     }
     else if(self.tint == FPPopoverWhiteTint)
     {
