@@ -362,36 +362,36 @@
 {
 	_deviceOrientation = [UIDevice currentDevice].orientation;
 
-	BOOL shouldResetView = NO;
+	BOOL shouldResetView = YES;
 
-    //iOS6 has a new orientation implementation.
-    //we ask to reset the view if is >= 6.0
-	if ([_viewController respondsToSelector:@selector(shouldAutorotateToInterfaceOrientation:)] &&
-        [[[UIDevice currentDevice] systemVersion] floatValue] < 6.0)
-	{
-		UIInterfaceOrientation interfaceOrientation;
-		switch (_deviceOrientation)
-		{
-			case UIDeviceOrientationLandscapeLeft:
-				interfaceOrientation = UIInterfaceOrientationLandscapeLeft;
-				break;
-			case UIDeviceOrientationLandscapeRight:
-				interfaceOrientation = UIInterfaceOrientationLandscapeRight;
-				break;
-			case UIDeviceOrientationPortrait:
-				interfaceOrientation = UIInterfaceOrientationPortrait;
-				break;
-			case UIDeviceOrientationPortraitUpsideDown:
-				interfaceOrientation = UIInterfaceOrientationPortraitUpsideDown;
-				break;
-			default:
-				return;	// just ignore face up / face down, etc.
-		}
-	}
-	else
-	{
-		shouldResetView = YES;
-	}
+//    //iOS6 has a new orientation implementation.
+//    //we ask to reset the view if is >= 6.0
+//	if ([_viewController respondsToSelector:@selector(shouldAutorotateToInterfaceOrientation:)] &&
+//        [[[UIDevice currentDevice] systemVersion] floatValue] < 6.0)
+//	{
+//		UIInterfaceOrientation interfaceOrientation;
+//		switch (_deviceOrientation)
+//		{
+//			case UIDeviceOrientationLandscapeLeft:
+//				interfaceOrientation = UIInterfaceOrientationLandscapeLeft;
+//				break;
+//			case UIDeviceOrientationLandscapeRight:
+//				interfaceOrientation = UIInterfaceOrientationLandscapeRight;
+//				break;
+//			case UIDeviceOrientationPortrait:
+//				interfaceOrientation = UIInterfaceOrientationPortrait;
+//				break;
+//			case UIDeviceOrientationPortraitUpsideDown:
+//				interfaceOrientation = UIInterfaceOrientationPortraitUpsideDown;
+//				break;
+//			default:
+//				return;	// just ignore face up / face down, etc.
+//		}
+//	}
+//	else
+//	{
+//		shouldResetView = YES;
+//	}
 
 	if (shouldResetView)
 		[UIView animateWithDuration:0.2 animations:^{
@@ -440,9 +440,9 @@
     
     
     CGFloat ht = p.y; //available vertical space on top of the view
-    CGFloat hb = [self parentHeight] -  (p.y + v.frame.size.height); //on the bottom
+    CGFloat hb = [self parentHeight] -  (p.y + height); //on the bottom
     CGFloat wl = p.x; //on the left
-    CGFloat wr = [self parentWidth] - (p.x + v.frame.size.width); //on the right
+    CGFloat wr = [self parentWidth] - (p.x + width); //on the right
         
     CGFloat best_h = MAX(ht, hb); //much space down or up ?
     CGFloat best_w = MAX(wl, wr);
