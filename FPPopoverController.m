@@ -178,7 +178,7 @@
 {
     self.view.frame = CGRectMake(0, 0, [self parentWidth], [self parentHeight]);
     _touchView.frame = self.view.bounds;
-    
+	_touchView.backgroundColor = [UIColor colorWithWhite:0 alpha:.4];
     //view position, size and best arrow direction
     [self bestArrowDirectionAndFrameFromView:_fromView];
 

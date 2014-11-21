@@ -151,7 +151,7 @@
         rect.size.width = w - 2*b;
         rect.size.height = h - ah - 2*b;
         rect.origin.x = b;
-        rect.origin.y = ah + b;        
+        rect.origin.y = ah + b;
     }
     else if(direction == FPPopoverArrowDirectionDown)
     {
@@ -363,7 +363,7 @@
     else if(self.tint == FPPopoverWhiteTint)
     {
         colors[0] = colors[1] = colors[2] = 1.0;
-        colors[0] = colors[1] = colors[2] = 1.0;
+        colors[4] = colors[5] = colors[6] = 1.0;
         colors[3] = colors[7] = 1.0;
     }
     
@@ -388,7 +388,7 @@
     CGContextSaveGState(ctx);
     
     //content fill
-    CGPathRef contentPath = [self newContentPathWithBorderWidth:2.0 arrowDirection:_arrowDirection];
+    CGPathRef contentPath = [self newContentPathWithBorderWidth:1.0 arrowDirection:_arrowDirection];
     
     
     CGContextAddPath(ctx, contentPath);
@@ -485,12 +485,12 @@
 	
     if(_arrowDirection == FPPopoverArrowDirectionUp)
     {
-        contentRect.origin = CGPointMake(10, 60);  
+        contentRect.origin = CGPointMake(10, 60);
         contentRect.size = CGSizeMake(self.bounds.size.width-20, self.bounds.size.height-70);
-        _titleLabel.frame = CGRectMake(10, 30, self.bounds.size.width-20, 20);    
+        _titleLabel.frame = CGRectMake(10, 30, self.bounds.size.width-20, 20);
 		if (self.title==nil || self.title.length==0) {
-			contentRect.origin = CGPointMake(10, 30);
-			contentRect.size = CGSizeMake(self.bounds.size.width-20, self.bounds.size.height-40);
+			contentRect.origin = CGPointMake(5, 15);
+			contentRect.size = CGSizeMake(self.bounds.size.width-17, self.bounds.size.height-18);
 		}
     }
     else if(_arrowDirection == FPPopoverArrowDirectionDown)
